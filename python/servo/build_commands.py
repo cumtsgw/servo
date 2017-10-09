@@ -242,8 +242,10 @@ class MachCommands(CommandBase):
         build_start = time()
         env = self.build_env(target=target, is_build=True)
 
+        env["RUSTFLAGS"] = ""
         if with_debug_assertions:
             env['RUSTFLAGS'] = env.get('RUSTFLAGS', "") + " -C debug_assertions"
+        env["RUSTFLAGS"] += " -Z thinlto"
 
         if android:
             android_platform = self.config["android"]["platform"]

@@ -6,9 +6,10 @@ members = [
 ]
 
 [profile.dev]
-codegen-units = 4
+codegen-units = 16
 
 [profile.release]
+codegen-units = 16
 opt-level = 3
 # Uncomment to profile on Linux:
 # debug = true
